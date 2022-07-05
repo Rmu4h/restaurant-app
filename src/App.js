@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Header, CreateContainer, MainContainer } from "./components";
@@ -7,7 +7,7 @@ import { useStateValue } from "./context/StateProvider";
 import { actionType } from "./context/reducer";
 
 const App = () => {
-  const [{foodItems}, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   const fetchData = async () => {
     await getAllFoodItems().then(data => {
@@ -20,6 +20,8 @@ const App = () => {
 
   useEffect(() => {
     fetchData();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
