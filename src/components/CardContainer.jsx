@@ -28,6 +28,7 @@ export default function CardContainer() {
     setTot(totalPrice);
     console.log(tot);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tot, flag])
  
 

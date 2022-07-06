@@ -13,20 +13,23 @@ export default function RowContainer({flag, data, scrollValue}) {
 
   const [{ cartItems }, dispatch] = useStateValue();
 
-  const addToCart = () => {
-    dispatch({
-      type : actionType.SET_CARTITEMS,
-      cartItems : items,
-    });
-    localStorage.setItem("cartItems", JSON.stringify(items))
-  };
+
 
   useEffect(() => {
     rowContainer.current.scrollLeft += scrollValue;
   }, [scrollValue]);
 
   useEffect(() => {
-    addToCart()
+    const addToCart = () => {
+      dispatch({
+        type : actionType.SET_CARTITEMS,
+        cartItems : items,
+      });
+      localStorage.setItem("cartItems", JSON.stringify(items))
+    };
+
+    addToCart();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items])
 
   return (

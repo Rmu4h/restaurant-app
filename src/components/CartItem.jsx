@@ -21,9 +21,9 @@ export default function CartItem({ item, setFlag, flag }) {
   }
 
   const updateQty = (action, id) => {
-    if (action == "add") {
+    if (action === "add") {
       setQty(qty + 1)
-      cartItems.map(item => {
+      cartItems.forEach(item => {
         if (item.id === id) {
           item.qty += 1;
           setFlag(flag + 1);
@@ -37,7 +37,7 @@ export default function CartItem({ item, setFlag, flag }) {
         cartDispatch();
       } else {
         setQty(qty - 1);
-        cartItems.map(item => {
+        cartItems.forEach(item => {
           if (item.id === id) {
             item.qty -= 1;
             setFlag(flag + 1);
@@ -50,6 +50,7 @@ export default function CartItem({ item, setFlag, flag }) {
 
   useEffect(() => {
     items = cartItems;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [qty, items]);
 
   return (
