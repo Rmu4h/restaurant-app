@@ -1,7 +1,7 @@
 Adaptive react app
 Technology stack:
 
-Reactjs
-Firebase
-Framer motion
+Reactjs,
+Firebase,
+Framer motion,
 Tailwind css
